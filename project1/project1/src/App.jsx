@@ -1,35 +1,55 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import { useState, useEffect, useRef } from 'react';
+import Viewer from '../component/Viewer';
+import Controllar from '../component/Controller';
+import Even from '../component/Even';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+  const [text, setText] = useState("");
+  const handleSetCount = (value) =>{
+    setCount(count+value);
+  };
+  const handleChangeText = (e)=>{
+    setText(e.target.value);
+  };
+  const didMountRef = useRef(false);
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+  useEffect(()=>{
+    if (!didMountRef.current){
+      didMountRef.current = true;
+      return;
+    }else{
+     console.log("컴포넌트 업데이트!"); 
+    }
+  });
+
+  useEffect(()=>{
+    console.log("컴포넌트 마운트");
+  },[]);
+  useEffect(()=>{
+      const intervalID = setInterval (()=>{
+        console.log("깜빡");
+      }, 1000);
+
+
+      return ()=>{
+        console.log("클린업");
+        clearInterval(intervalID);
+      };
+  });
+
+  return ( <div className='app'>
+    <h1>Simple Counter</h1>
+    <section>
+      <input value={text} onChange={handleChangeText}/>
+      <Viewer count ={count} />
+      {count % 2 === 0 && <Even />}
+
+      <Controllar handleSetCount={handleSetCount} />
+    </section>
+  </div>
+  );
 }
 
 export default App

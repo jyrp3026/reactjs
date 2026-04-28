@@ -227,11 +227,19 @@ print(f"center = ({(ex1.A+ex2.A)/2:.1f}, {(ex1.B+ex2.B)/2:.1f})")
 # print(lst)
 
 
-N = int(input())
-arr = list(map(int, input().split()))
+# N = int(input())
+# arr = list(map(int, input().split()))
 
-for i in range(N - 1):
-    for j in range(N-i-1):
-        if arr[j] > arr[j + 1]:
-            arr[j], arr[j + 1] = arr[j + 1], arr[j]
-    print(arr)
+# for i in range(N - 1):
+#     for j in range(N-i-1):
+#         if arr[j] > arr[j + 1]:
+#             arr[j], arr[j + 1] = arr[j + 1], arr[j]
+#     print(arr)
+
+N, M = map(int, input().split())
+box = [0] * N
+for l in range(M):
+    i, j, k = map(int, input().split())
+    for x in range(i-1, j):
+        box[x] = k
+print(*box)
