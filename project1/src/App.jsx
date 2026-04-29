@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import Viewer from '../component/Viewer';
 import Controllar from '../component/Controller';
 import Even from '../component/Even';
+import Eten from '../component/Eten';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -45,6 +46,7 @@ function App() {
       <input value={text} onChange={handleChangeText}/>
       <Viewer count ={count} />
       {count % 2 === 0 && <Even />}
+      {count % 2 === 1 && <Eten />}
 
       <Controllar handleSetCount={handleSetCount} />
     </section>
