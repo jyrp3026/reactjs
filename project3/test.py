@@ -22,16 +22,46 @@
 #     cards = list(map(int, input().split()))
 #     print(f"#{test_case}", tournament(cards, 1, N))
 
-N1 = int(input())
-k = 1
-if N1 <=0:
-    print("INPUT ERROR!")
-for i in range(1,N1+1):
-    if N1 % 2 == 0 or N1>50:
-        print("INPUT ERROR!")
-    else:
-        lst = list(range(k,k+i))
-        if i % 2 == 0:
-            lst = lst[::-1]
-    print(*lst)
-    k += i
+# N1 = int(input())
+# k = 1
+# if N1 <=0:
+#     print("INPUT ERROR!")
+# for i in range(1,N1+1):
+#     if N1 % 2 == 0 or N1>50:
+#         print("INPUT ERROR!")
+#     else:
+#         lst = list(range(k,k+i))
+#         if i % 2 == 0:
+#             lst = lst[::-1]
+#     print(*lst)
+#     k += i
+
+# def solution(array, height):
+#     return sum(1 for h in array if h > height)
+
+# array = list(map(int,input().split()))
+# hei = int(input())
+# array.append(hei)
+
+# print(solution(array,hei))
+
+# def solution(my_str,n):
+#     answer = []
+#     for i in range(0, len(my_str), n):
+#         answer.append(my_str[i:i+n])
+#     return answer
+
+
+# solution1 = "abc1Addfggg4556b"
+# solution2 = "abcdef123"
+
+# print(solution(solution1,6))
+
+def solution(numbers):
+    answer = ["zero","one","two","three","four","five","six","seven","eight","nine"]
+    for i, answer in enumerate(answer):
+        numbers = numbers.replace(answer, str(i))
+    return int(numbers)
+
+solution1 = "onetwothreefourfivesixseveneightnine"
+print(solution(solution1))
