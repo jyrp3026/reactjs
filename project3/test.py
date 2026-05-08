@@ -57,11 +57,41 @@
 
 # print(solution(solution1,6))
 
-def solution(numbers):
-    answer = ["zero","one","two","three","four","five","six","seven","eight","nine"]
-    for i, answer in enumerate(answer):
-        numbers = numbers.replace(answer, str(i))
-    return int(numbers)
+# def solution(numbers):
+#     answer = ["zero","one","two","three","four","five","six","seven","eight","nine"]
+#     for i, answer in enumerate(answer):
+#         numbers = numbers.replace(answer, str(i))
+#     return int(numbers)
 
-solution1 = "onetwothreefourfivesixseveneightnine"
+# solution1 = "onetwothreefourfivesixseveneightnine"
+# print(solution(solution1))
+
+# def solution(dots):
+#     answer = dots
+#     if(answer[1][1] - answer[0][1]) / (answer[3][0] - answer[2][0]) == (answer[3][1] - answer[2][1]) / (answer[1][0] - answer[0][0]):
+#         return 1
+#     elif(answer[2][1] - answer[0][1]) / (answer[3][0] - answer[1][0]) == (answer[3][1] - answer[1][1]) / (answer[2][0] - answer[0][0]):
+#         return 1
+#     elif(answer[3][1] - answer[0][1]) / (answer[2][0] - answer[1][0]) == (answer[2][1] - answer[1][1]) / (answer[3][0] - answer[0][0]):
+#         return 1
+#     else:
+#         return 0    
+
+# solution1 = [[1, 4], [9, 2], [3, 8], [11, 6]]
+# solution2 = [[3, 5], [4, 1], [2, 4], [5, 10]]
+
+# print(solution(solution1))
+
+def solution(age):
+    answer = list(str(age))
+    result = ""
+    for i in range(len(answer)):
+        result += chr(ord('a') + int(answer[i]))
+    return result
+    
+
+solution1 = 24
+
 print(solution(solution1))
+
+
